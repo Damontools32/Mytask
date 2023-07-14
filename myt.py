@@ -35,7 +35,6 @@ async def handle_message(event):
     if state['step'] == 'subject':
         state['subject'] = event.raw_text
         state['step'] = 'year'
-        await event.respond('سال یادآوری رو وارد کن (به فرمت YYYY):')
     elif state['step'] == 'year':
         try:
             year = int(event.raw_text)
@@ -43,9 +42,15 @@ async def handle_message(event):
                 raise ValueError
             state['time'] = str(year)
             state['step'] = 'month'
-            await event.respond('ماه یادآوری رو وارد کن (به فرمت MM):')
         except ValueError:
             await event.respond('لطفاً یک سال معتبر وارد کنید (بین 1300 تا 1500):')
+            return
+
+    if state['step'] == 'year':
+        await event.respond('سال یادآوری رو وارد کن (به فرمت YYYY):')
+    elif state['step'] == 'month':
+        await event.respond('ماه یادآوری رو وارد کن (به فرمت MM):')
+
     # rest of your code here
 
     # Don't forget to validate month, day, hour and repeat count similarly 
