@@ -43,10 +43,10 @@ async def handle_message(event):
                 raise ValueError
             state['time'] = str(year)
             state['step'] = 'month'
-            await event.respond('ماه یادآوری رو وارد کن (به فرمت MM):')
         except ValueError:
             await event.respond('لطفاً یک سال معتبر وارد کنید (بین 1300 تا 1500):')
             return
+
     # rest of your code here
 
     # Don't forget to validate month, day, hour and repeat count similarly 
