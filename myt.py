@@ -15,7 +15,7 @@ async def handle_new_message(event):
         video_path = await client.download_media(video)
         output_path = video_path.rsplit('.', 1)[0] + '_compressed.mp4'
         
-        command = f'ffmpeg -i {video_path} -vcodec libx265 -crf 51 -preset ultrafast {output_path}'
+        command = f'ffmpeg -i {video_path} -vcodec libx265 -crf 45 -preset superfast {output_path}'
         subprocess.run(command, shell=True)
         
         if os.path.exists(output_path):
