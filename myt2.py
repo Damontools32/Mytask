@@ -2,9 +2,10 @@ import os
 import subprocess
 from telethon import TelegramClient, events
 
-api_id = '20307428'
-api_hash = 'db1b2a38958c06bc4e99b01d4cfd485c'
-bot_token = '6681495563:AAF_yFHyERQfh2FJDlFp-wYVrC35GgdDSwY'
+api_id = 'YOUR_API_ID'
+api_hash = 'YOUR_API_HASH'
+bot_token = 'YOUR_BOT_TOKEN'
+
 
 client = TelegramClient('bot', api_id, api_hash).start(bot_token=bot_token)
 
